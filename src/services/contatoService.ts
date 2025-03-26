@@ -37,3 +37,21 @@ export const listarContatoPorId = async (id: number) => {
         return;
     }
 }
+
+export const atualizarContato = async (id: number, data: Contato) => {
+    try {
+        return await prisma.contato.update({
+            where: {
+                id: id
+            },
+            data: {
+                nome: data.nome,
+                numero: data.numero,
+                email: data.email
+            }
+        });
+    } catch (error) {
+        console.log(error);
+        return null;
+    } 
+}
