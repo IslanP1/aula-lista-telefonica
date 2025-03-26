@@ -15,3 +15,12 @@ export const criarContato = async (data: Contato) => {
         return null;
     }
 } 
+
+export const listarContatos = async () => {
+    try {
+       return await prisma.contato.findMany();
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
