@@ -24,3 +24,16 @@ export const listarContatos = async () => {
         return null;
     }
 }
+
+export const listarContatoPorId = async (id: number) => {
+    try {
+        return await prisma.contato.findUnique({
+            where: {
+                id: id
+            }
+        });
+    } catch (error) {
+        console.log(error);
+        return;
+    }
+}
