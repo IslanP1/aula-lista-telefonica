@@ -55,3 +55,19 @@ export const atualizarContato = async (id: number, data: Contato) => {
         return null;
     } 
 }
+
+export const atualizarContatoNumero = async (id: number, numero: string) => {
+    try {
+        return await prisma.contato.update({
+            where: {
+                id: id
+            },
+            data: {
+                numero: numero
+            }
+        })
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
