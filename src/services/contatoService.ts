@@ -14,11 +14,11 @@ export const criarContato = async (data: Contato) => {
         console.log(error);
         return null;
     }
-} 
+}
 
 export const listarContatos = async () => {
     try {
-       return await prisma.contato.findMany();
+        return await prisma.contato.findMany();
     } catch (error) {
         console.log(error);
         return null;
@@ -53,7 +53,7 @@ export const atualizarContato = async (id: number, data: Contato) => {
     } catch (error) {
         console.log(error);
         return null;
-    } 
+    }
 }
 
 export const atualizarContatoNumero = async (id: number, numero: string) => {
@@ -65,7 +65,20 @@ export const atualizarContatoNumero = async (id: number, numero: string) => {
             data: {
                 numero: numero
             }
-        })
+        });
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+
+export const apagarContato = async (id: number) => {
+    try {
+        return await prisma.contato.delete({
+            where: {
+                id: id
+            }
+        });
     } catch (error) {
         console.log(error);
         return null;
