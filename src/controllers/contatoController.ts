@@ -10,3 +10,13 @@ export const criar = async (requisicao: Request, response: Response) => {
     response.status(500).json({ error: "Não foi possível criar o contato!" })
     return;
 }
+
+export const listar = async (requisicao: Request, response: Response) => {
+    const contatos = await listarContatos();
+    if (contatos) {
+        response.status(200).json(contatos);
+        return;
+    }
+    response.status(404).json({error: "Nenhum contato"});
+    return;
+}
