@@ -1,12 +1,12 @@
-import express, { Request, Response } from "express";
+import express from "express";
+import routerContato from "./routes/contatoRoutes";
 
 const app = express();
 app.use(express.json());
 
-app.get("/hello", (requisicao: Request, response: Response) => {
-    response.status(200).json("hello world!");
-    return;
-});
+app.use("/api", routerContato);
+
+// http://localhost:8080/api/
 
 const porta = 8080;
 
