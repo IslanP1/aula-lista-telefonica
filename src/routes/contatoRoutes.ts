@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { criar, listar } from "../controllers/contatoController";
-import { verificarCampo } from "../middlewares/verificarCampo";
+import { verificarCampo } from "../middlewares/Contato/verificarCampo";
 
 const routerContato = Router();
 

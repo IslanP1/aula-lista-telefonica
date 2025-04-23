@@ -84,3 +84,19 @@ export const apagarContato = async (id: number) => {
         return null;
     }
 }
+
+export const buscarNumeroEEmail = async (numero: string, email: string) => {
+    try {
+        return prisma.contato.findFirst({
+            where: {
+                AND: [
+                    {numero},
+                    {email}
+                ]
+            }
+        })
+    } catch (error) {
+        console.log(error);
+        return null; 
+    }
+}

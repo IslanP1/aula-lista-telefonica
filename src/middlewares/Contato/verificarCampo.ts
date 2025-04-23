@@ -12,3 +12,4 @@ export const verificarCampo = async (requisicao: Request, response: Response, ne
     }
     next();
 }
+
