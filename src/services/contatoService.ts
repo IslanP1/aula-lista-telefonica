@@ -87,7 +87,7 @@ export const apagarContato = async (id: number) => {
 
 export const buscarNumeroEEmail = async (numero: string, email: string) => {
     try {
-        return prisma.contato.findFirst({
+        return await prisma.contato.findFirst({
             where: {
                 AND: [
                     {numero},
